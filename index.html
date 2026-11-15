@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1b2d22">
+  <title>BINJGB — Game Boy no navegador</title>
+  <style>
+    :root { font-family: system-ui, sans-serif; color-scheme: dark; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; background: #17251a; color: #f0f5e6; }
+    body { display: flex; flex-direction: column; min-height: 100vh; }
+    header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 14px max(18px, calc((100vw - 1100px)/2)); }
+    h1 { margin: 0; font-size: 1.25rem; letter-spacing: .12em; }
+    header a { color: #d5edba; text-underline-offset: 3px; }
+    main { width: min(100%, 1100px); flex: 1; margin: auto; padding: 0 18px 18px; }
+    #game { width: 100%; height: min(74vh, 760px); min-height: 420px; overflow: hidden; border: 2px solid #607d50; border-radius: 12px; background: #0b120d; }
+    footer { padding: 0 18px 18px; text-align: center; font-size: .85rem; color: #b7c9aa; }
+    @media (max-width: 600px) { #game { min-height: 70vh; height: 70vh; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>BINJGB</h1>
+    <a href="./binjgb.gb" download="binjgb.gb">Baixar ROM .gb</a>
+  </header>
+  <main>
+    <div id="game" aria-label="Emulador de Game Boy executando a ROM BINJGB"></div>
+  </main>
+  <footer>ROM demonstrativa original de Game Boy. Use os controles exibidos pelo emulador.</footer>
+  <script>
+    window.EJS_player = '#game';
+    window.EJS_core = 'gb';
+    window.EJS_gameName = 'BINJGB';
+    window.EJS_gameUrl = './binjgb.gb';
+    window.EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/';
+    window.EJS_startOnLoaded = true;
+    window.EJS_language = 'pt-BR';
+  </script>
+  <script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
+</body>
+</html>
