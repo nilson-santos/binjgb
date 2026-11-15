@@ -1,7 +1,7 @@
 # BINJGB
 
-Projeto fictício que inicia uma ROM original de Game Boy diretamente no navegador em `index.html`, usando [EmulatorJS](https://emulatorjs.org/). A ROM `binjgb.gb` tem 32 KiB e mostra **BINJGB** na tela. Também é possível baixá-la pela página.
+Página de Game Boy hospedada no GitHub Pages. Abre automaticamente **The Legend of Zelda: Link's Awakening** no [EmulatorJS](https://emulatorjs.org/).
 
-Para recriar a ROM: `python3 build_rom.py`.
+A ROM `links-awakening.gb` foi fornecida pelo usuário.
 
-GitHub Pages: https://nilson-santos.github.io/binjgb/
+Site: https://nilson-santos.github.io/binjgb/
