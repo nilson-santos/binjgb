@@ -15,10 +15,11 @@ rom[0x134:0x13A] = b'BINJGB'
 rom[0x147:0x14A] = b'\0\0\0'  # ROM only, 32 KiB, no RAM
 
 # Disable LCD, copy seven 8x8 tiles (blank + BINJGB) to VRAM,
-# write tile indices to the center of the background map, turn LCD on.
+# clear the background map, write tile indices to its center, turn LCD on.
 code = bytes.fromhex(
     'F3 3E 00 E0 40 21 00 80 11 00 02 06 70 '
     '1A 22 13 05 20 FA '
+    '21 00 98 01 00 04 16 00 7A 22 0B 78 B1 20 F9 '
     '21 46 99 '
     '3E 01 22 3E 02 22 3E 03 22 '
     '3E 04 22 3E 05 22 3E 06 22 '
