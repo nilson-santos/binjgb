@@ -8,6 +8,46 @@
   <style>
     html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #000; }
     #game { width: 100vw; height: 100vh; height: 100dvh; overflow: hidden; }
+    /* Handheld shell in Zelda green and gold behind the touch controls. */
+    #game.ejs_small_screen::after {
+      content: "";
+      position: absolute;
+      inset: 90vw 0 0;
+      background:
+        radial-gradient(ellipse at 50% 115%, #94b75f33, transparent 65%),
+        repeating-linear-gradient(135deg, transparent 0 10px, #ffffff08 10px 11px),
+        linear-gradient(180deg, #28563c, #184331 62%, #102d23);
+      border-top: 3px solid #d0ae6a;
+      box-shadow: inset 0 10px 18px #0a2419b3, 0 -5px 20px #0006;
+      pointer-events: none;
+      z-index: 2;
+    }
+    @media (orientation: landscape) {
+      #game.ejs_small_screen::after { inset: auto 0 0; height: 50dvh; }
+    }
+    #game.ejs_small_screen::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 200px;
+      width: 76px;
+      height: 72px;
+      transform: translateX(-50%);
+      background: url('./triforce.svg') center / contain no-repeat;
+      filter: drop-shadow(0 2px 5px #0a2419);
+      opacity: .8;
+      pointer-events: none;
+      z-index: 3;
+    }
+    #game.ejs_small_screen .ejs_virtualGamepad_parent {
+      bottom: calc(95px + env(safe-area-inset-bottom, 0px)) !important;
+      z-index: 4;
+    }
+    @media (max-height: 650px) {
+      #game.ejs_small_screen .ejs_virtualGamepad_parent {
+        bottom: calc(70px + env(safe-area-inset-bottom, 0px)) !important;
+      }
+    }
     /* EmulatorJS owns the menu layout and the native mobile menu button. */
     #game.ejs_small_screen .ejs_virtualGamepad_parent { display: block !important; }
     #game .ejs_virtualGamepad_button.b_a {
@@ -34,7 +74,11 @@
       border-color: #bc9d5c !important;
       color: #fff1bf !important;
     }
-    #game .ejs_dpad_bar { background: #254b36 !important; }
+    #game .ejs_dpad_main { opacity: 1 !important; }
+    #game .ejs_dpad_bar {
+      background: #102f24 !important;
+      box-shadow: inset 0 0 0 2px #c4a55c, 0 3px 8px #071e16cc !important;
+    }
     #game .ejs_dpad_horizontal::before { border-right-color: #f4d990 !important; }
     #game .ejs_dpad_horizontal::after { border-left-color: #f4d990 !important; }
     #game .ejs_dpad_vertical::before { border-bottom-color: #f4d990 !important; }
