@@ -74,10 +74,26 @@
       border-color: #bc9d5c !important;
       color: #fff1bf !important;
     }
-    #game .ejs_dpad_main { opacity: 1 !important; }
+    #game .ejs_dpad_main { opacity: 1 !important; isolation: isolate; }
+    #game .ejs_dpad_main::before,
+    #game .ejs_dpad_main::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      clip-path: polygon(35% 0, 65% 0, 65% 35%, 100% 35%, 100% 65%, 65% 65%, 65% 100%, 35% 100%, 35% 65%, 0 65%, 0 35%, 35% 35%);
+    }
+    #game .ejs_dpad_main::before {
+      inset: 0;
+      background: #d6b66b;
+      filter: drop-shadow(0 4px 8px #071e16cc);
+    }
+    #game .ejs_dpad_main::after {
+      inset: 3px;
+      background: radial-gradient(circle at 50% 50%, #386447 0 13px, transparent 14px), linear-gradient(145deg, #315e43, #102f24 65%);
+    }
     #game .ejs_dpad_bar {
-      background: #102f24 !important;
-      box-shadow: inset 0 0 0 2px #c4a55c, 0 3px 8px #071e16cc !important;
+      background: transparent !important;
+      box-shadow: none !important;
     }
     #game .ejs_dpad_horizontal::before { border-right-color: #f4d990 !important; }
     #game .ejs_dpad_horizontal::after { border-left-color: #f4d990 !important; }
